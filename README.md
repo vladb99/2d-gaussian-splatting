@@ -54,6 +54,32 @@ git clone https://github.com/hbb1/2d-gaussian-splatting.git --recursive
 conda env create --file environment.yml
 conda activate surfel_splatting
 ```
+
+## Installation remote machine
+
+```bash
+conda create -n 3DSSL-2dgs python=3.9
+conda activate 3DSSL-2dgs
+
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
+pip install -r requirements.txt
+
+conda install nvidia/label/cuda-11.8.0::cuda-nvcc
+conda install nvidia/label/cuda-11.8.0::cuda-cudart-dev
+conda env config vars set CUDA_HOME=$CONDA_PREFIX
+
+pip install submodules/simple-knn/
+
+# These three might not be needed
+conda install cmake
+conda install conda-forge::gmp
+conda install conda-forge::cgal
+
+cd submodules/diff-surfel-rasterization/
+git submodule update --init --recursive
+pip install submodules/diff-surfel-rasterization
+```
+
 ## Training
 To train a scene, simply use
 ```bash
