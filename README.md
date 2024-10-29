@@ -75,6 +75,8 @@ conda install cmake
 conda install conda-forge::gmp
 conda install conda-forge::cgal
 
+conda install mediapy
+
 cd submodules/diff-surfel-rasterization/
 git submodule update --init --recursive
 pip install submodules/diff-surfel-rasterization
