@@ -80,6 +80,8 @@ conda install mediapy
 cd submodules/diff-surfel-rasterization/
 git submodule update --init --recursive
 pip install submodules/diff-surfel-rasterization
+
+pip install numpy==1.26.1 # Fixes segmentation fault: https://github.com/isl-org/Open3D/issues/6975
 ```
 
 ## Training
